@@ -11,6 +11,7 @@ using namespace std;
 bool level1(sf::RenderWindow &window, sf::View &view, Player &player) {
     vector<Platform> platforms; // Vector with all platforms
     platforms.emplace_back(nullptr, sf::Vector2f(1000.f, 200.f), sf::Vector2f(500.f, 500.f)); // Creation of the ground platform
+    platforms.emplace_back(nullptr, sf::Vector2f(100.f, 100.f), sf::Vector2f(100.f, 100.f), 100.f, sf::Vector2f(100.f, 100.f), sf::Vector2f(1000.f, 100.f));
 
     float deltaTime; // Initialisation of the time
     sf::Clock clock;
@@ -43,6 +44,10 @@ bool level1(sf::RenderWindow &window, sf::View &view, Player &player) {
         }
 
         player.Update(deltaTime); // Update the position of the player
+
+        for (Platform &platform: platforms) {
+            platform.UpdatePosition(deltaTime);
+        }
 
         sf::Vector2f direction; // Initialise direction
 
