@@ -23,6 +23,7 @@ int main()
 
     Player player(&playerTexture, sf::Vector2u(8, 4), 0.2f, 200.f, 200.f); // Set up of the player
 
+    levelTest(window, view, player);
     level1(window, view, player);
 }
 

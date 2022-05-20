@@ -1,22 +1,24 @@
 //
-// Created by Maxime on 07/05/2022.
+// Created by Maxime on 18/05/2022.
 //
 
 #include "global.h"
 
 using namespace std;
 
-bool level1(sf::RenderWindow &window, sf::View &view, Player &player) {
+bool levelTest(sf::RenderWindow &window, sf::View &view, Player &player) {
     sf::Vector2f spawnPoint = {350.f, 100.f};
     player.Go(spawnPoint);
 
     GameEvents ClassicCollisions(BLOCK, BLOCK, BLOCK, BLOCK);
 
     vector<Platform> platforms; // Vector with all platforms
-    platforms.emplace_back(nullptr, sf::Vector2f(1000.f, 200.f), sf::Vector2f(500.f, 500.f), ClassicCollisions,
-                           "platform"); // Creation of the ground platform
-    platforms.emplace_back(nullptr, sf::Vector2f(100.f, 100.f), sf::Vector2f(100.f, 100.f), ClassicCollisions,
-                           "platform", 100.f, sf::Vector2f(100.f, 100.f), sf::Vector2f(1000.f, 100.f));
+    platforms.emplace_back(nullptr, sf::Vector2f(1000.f, 200.f), sf::Vector2f(500.f, 500.f), ClassicCollisions, "platform"); // Creation of the ground platform
+    platforms.emplace_back(nullptr, sf::Vector2f(10.f, 40.f), sf::Vector2f(100.f, 100.f), ClassicCollisions, "platform");
+    platforms.emplace_back(nullptr, sf::Vector2f(10.f, 40.f), sf::Vector2f(350.f, 0.f), ClassicCollisions, "platform");
+    platforms.emplace_back(nullptr, sf::Vector2f(10.f, 40.f), sf::Vector2f(100.f, -100.f), ClassicCollisions, "platform");
+    platforms.emplace_back(nullptr, sf::Vector2f(10.f, 40.f), sf::Vector2f(350.f, -200.f), ClassicCollisions, "platform");
+
 
 
     float deltaTime; // Initialisation of the time
@@ -66,7 +68,7 @@ bool level1(sf::RenderWindow &window, sf::View &view, Player &player) {
             index += 1;
         }
 
-                // platform.getCollider().getSide(player.getCollider())
+        // platform.getCollider().getSide(player.getCollider())
 
         setView(view, player.getPosition().x); // Set the view on the player
 
@@ -84,4 +86,6 @@ bool level1(sf::RenderWindow &window, sf::View &view, Player &player) {
     return true;
 
 }
+
+
 

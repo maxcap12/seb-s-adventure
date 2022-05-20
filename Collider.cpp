@@ -69,4 +69,14 @@ bool Collider::checkCollision(Collider other, sf::Vector2<float> direction, floa
     return false;
 }
 
+int Collider::getSide(Collider other) {
+    sf::Vector2f otherPosition = other.getPosition();
+    sf::Vector2f otherHalfSize = other.getHalfSize();
+    sf::Vector2f thisPosition = getPosition();
+    sf::Vector2f thisHalfSize = getHalfSize();
+
+
+    return 0;
+}
+
 Collider::~Collider() = default;

@@ -3,6 +3,7 @@
 //
 
 #include <SFML/Graphics.hpp>
+
 #ifndef GAME_COLLIDER_H
 #define GAME_COLLIDER_H
 
@@ -14,6 +15,7 @@ public:
 
     void move(float deltaX, float deltaY) { body.move(deltaX, deltaY); }
     bool checkCollision(Collider other, sf::Vector2<float> directon, float push);
+    int getSide(Collider other);
     sf::Vector2f getPosition() { return body.getPosition(); }
     sf::Vector2f getHalfSize() { return body.getSize() / 2.f; }
 

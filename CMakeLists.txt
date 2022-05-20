@@ -3,7 +3,7 @@ project(game)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp animation.cpp animation.h Player.cpp Player.h Collider.cpp Collider.h Platform.cpp Platform.h level1.cpp global.h view.cpp)
+set(SOURCE_FILES main.cpp animation.cpp animation.h Player.cpp Player.h Collider.cpp Collider.h Platform.cpp Platform.h level1.cpp global.h view.cpp Events.cpp Events.h onCollision.cpp Level.cpp Level.h levelTest.cpp)
 add_executable(game ${SOURCE_FILES})
 include_directories(/usr/local/include)
 

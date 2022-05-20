@@ -2,9 +2,6 @@
 // Created by Maxime on 07/05/2022.
 //
 
-#define VIEW 1200
-
-#include <SFML/Graphics.hpp>
 #include "global.h"
 
 void resizeView(const sf::RenderWindow &window, sf::View &view) {

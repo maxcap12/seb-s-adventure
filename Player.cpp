@@ -5,6 +5,7 @@
 #include <cmath>
 #include <iostream>
 #include "Player.h"
+#include "Events.h"
 
 Player::Player(Texture *texture, Vector2u imageCount, float switchTime, float speed, float jumpHeight):
         animation(texture, imageCount, switchTime)
@@ -58,13 +59,10 @@ void Player::Update(float deltaTime) {
 void Player::Draw(sf::RenderWindow &window) {
     /* Draw the player
      * &window: reference to the window */
-
     window.draw(player);
 }
 
-void Player::onCollision(sf::Vector2f direction) {
-    /* Reset the speed
-     *  direction: direction of the player */
+void Player::Collision() {
 
     if (velocity.x != 0.f) // Collision on right or left
         velocity.x = 0.f;
@@ -75,4 +73,26 @@ void Player::onCollision(sf::Vector2f direction) {
     }
     else if (velocity.y < 0.f) // Collision on top
         velocity.y = 0.f;
+}
+
+void Player::DieAnimation() {
+
+}
+
+void Player::Damage() {
+
+    if (state == "basic")
+        DieAnimation();
+    else if (state == "big") {
+        state = "basic";
+        // change animation row
+    }
+    else if (state == "upgraded") {
+        state = "big";
+        // change animation row
+    }
+}
+
+void Player::Use(std::string type) {
+
 }

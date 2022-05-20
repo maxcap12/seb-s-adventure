@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "animation.h"
 #include "Collider.h"
+#include <string>
 #ifndef GAME_PLAYER_H
 #define GAME_PLAYER_H
 
@@ -16,7 +17,12 @@ public:
 
     void Update(float deltaTime);
     void Draw(sf::RenderWindow &window);
-    void onCollision(sf::Vector2f direction);
+    void Collision();
+    void Damage();
+    void DieAnimation();
+    void Use(std::string type);
+    void SetPosition(sf::Vector2f pos) { player.setPosition(pos); }
+    void Go(sf::Vector2f pos) { player.setPosition(pos); }
 
     sf::Vector2f getPosition() { return player.getPosition(); }
     Collider getCollider() { return Collider(player); }
@@ -31,6 +37,7 @@ private:
     sf::Vector2f velocity;
     bool canJump = true;
     float jumHeight;
+    std::string state = "basic";
 };
 
 

@@ -6,11 +6,15 @@
 #include "Platform.h"
 #include <iostream>
 
-Platform::Platform(sf::Texture *texture, sf::Vector2f size, sf::Vector2f position, float moveSpeed, sf::Vector2f p1, sf::Vector2f p2) {
+Platform::Platform(sf::Texture *texture, sf::Vector2f size, sf::Vector2f position, GameEvents &GameEvents,
+                   std::string Platformtype, float moveSpeed, sf::Vector2f p1, sf::Vector2f p2):
+        events(GameEvents)
+{
     body.setSize(size);
     body.setOrigin(size / 2.f);
     body.setPosition(position);
     body.setTexture(texture);
+    type = Platformtype;
     speed = moveSpeed;
     point1 = p1;
     point2 = p2;
